@@ -8,7 +8,7 @@ import { Button, Form, Image } from "react-bootstrap"
 import usePokemon from "@/hooks/usePokemon"
 import { FormEvent } from "react"
 
-
+//? En este archivo vamos a hacer el fetch desde el cliente y guardamos las variables en el estado
 
 export default function PokemonDetailsPage() {
     //TODO haremos el fetch desde el cliente en nuestra app
