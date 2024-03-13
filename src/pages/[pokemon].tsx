@@ -1,22 +1,22 @@
 import { useRouter } from "next/router"
-import useSWR from "swr"
+//import useSWR from "swr"
 import * as PokemonApi from '@/network/pokemonApi' // exportamos todas las funciones fetch
 import Head from "next/head"
 import Link from "next/link"
 import Spinner from "react-bootstrap/Spinner"
 import { Button, Form, Image } from "react-bootstrap"
 import usePokemon from "@/hooks/usePokemon"
-import { FormEvent } from "react"
-
-
+//import { FormEvent } from "react"
 
 export default function PokemonDetailsPage() {
     //TODO haremos el fetch desde el cliente en nuestra app
     const router = useRouter()
     const pokemonName = router.query.pokemon?.toString() || ''
-    //* renombramos la data a pokemon y el loading a pokemonLoading
+
+    //* creamos nuestro hook personalizado y dentro de el usamos useSWR
     //const { pokemon, pokemonLoading } = useSWR(pokemonName, PokemonApi.getPokemon)
     const { pokemon, pokemonLoading, mutatePokemon } = usePokemon(pokemonName)
+
     async function handleSubmitNickname(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         const formData = new FormData(e.currentTarget as HTMLFormElement)

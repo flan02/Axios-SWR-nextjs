@@ -13,7 +13,7 @@ export default function usePokemon(name: string) {
                 throw error; // cualquier otro error distinto de 404 lo lanzamos
             }
         }
-    });
+    }, { revalidateIfStale: true });
 
     return {
         pokemon: data,
